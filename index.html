@@ -1,0 +1,1356 @@
+<!doctype html>
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>Книжный клуб — адаптивная версия</title>
+
+    <!-- Шрифты -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oi&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #ffffff;
+
+        font-family: "Old Standard TT", serif;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      /* ========== ШАПКА (адаптивная) ========== */
+
+      .site-header {
+        width: 100%;
+
+        background-color: #a63ecf;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+
+        padding: 12px 20px;
+      }
+
+      .nav-window {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 16px 24px;
+
+        font-family: "Old Standard TT", serif;
+
+        font-size: 1.2rem;
+
+        color: #ffffff;
+
+        text-align: center;
+      }
+
+      .nav-window a {
+        text-decoration: none;
+
+        color: inherit;
+
+        transition: opacity 0.2s;
+
+        white-space: nowrap;
+      }
+
+      .nav-window a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+
+      /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+
+      .site-container {
+        width: 100%;
+
+        max-width: 1440px;
+
+        background-color: #ffffff;
+
+        margin: 0 auto;
+
+        position: relative;
+      }
+
+      /* ---- общие корректировки для мобильных (по умолчанию — десктоп, но добавлена адаптивность) ---- */
+
+      img {
+        max-width: 100%;
+
+        height: auto;
+
+        display: block;
+      }
+
+      /* ----- 1. ГЛАВНАЯ СТРАНИЦА (адаптивная) ----- */
+
+      .main-section {
+        position: relative;
+
+        width: 100%;
+
+        background-color: #ffffff;
+
+        padding: 0 20px 50px;
+
+        scroll-margin-top: 60px;
+      }
+
+      .purple-block-main {
+        background-color: #772398;
+
+        width: 100%;
+
+        padding: 30px 20px 40px;
+
+        border-radius: 20px;
+
+        margin-top: 100px;
+
+        position: relative;
+
+        z-index: 1;
+      }
+
+      .title-row {
+        position: relative;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 0 12px;
+
+        margin-bottom: 20px;
+      }
+
+      .word-knizhny {
+        font-family: "Oi", cursive;
+
+        font-size: clamp(2.4rem, 10vw, 5rem);
+
+        color: #a196a6;
+
+        line-height: 1.2;
+      }
+
+      .word-klub {
+        font-family: "Oi", cursive;
+
+        font-size: clamp(2.4rem, 10vw, 5rem);
+
+        color: #332d35;
+
+        line-height: 1.2;
+      }
+
+      .text-window-1,
+      .text-window-2 {
+        color: #ffffff;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+        margin-bottom: 24px;
+      }
+
+      .text-window-1 {
+        font-style: italic;
+      }
+
+      .feature-item {
+        margin-bottom: 8px;
+
+        display: flex;
+
+        align-items: baseline;
+
+        gap: 6px;
+      }
+
+      .feature-item::before {
+        content: "•";
+
+        color: #ffffff;
+
+        font-weight: bold;
+
+        font-size: 1.2rem;
+
+        margin-right: 6px;
+      }
+
+      .buttons-wrapper-main {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        margin-top: 30px;
+
+        align-items: center;
+      }
+
+      .btn {
+        font-family: "Old Standard TT", serif;
+
+        font-size: 1.2rem;
+
+        background-color: #772398;
+
+        color: #ffffff;
+
+        border: none;
+
+        cursor: pointer;
+
+        padding: 14px 20px;
+
+        border-radius: 50px;
+
+        width: 100%;
+
+        max-width: 280px;
+
+        text-align: center;
+
+        transition: 0.2s;
+      }
+
+      .btn:hover {
+        background-color: #5e1a7a;
+      }
+
+      .btn-join,
+      .btn-meeting {
+        width: 100%;
+
+        max-width: 280px;
+      }
+
+      /* ----- 2. КАК ЭТО РАБОТАЕТ ----- */
+
+      .how-section {
+        position: relative;
+
+        width: 100%;
+
+        background-color: #ffffff;
+
+        margin-top: 60px;
+
+        padding: 20px;
+
+        scroll-margin-top: 60px;
+      }
+
+      .title-main {
+        font-size: 2.2rem;
+
+        color: #772398;
+
+        text-align: center;
+
+        margin-bottom: 16px;
+      }
+
+      .title-sub {
+        font-size: 1.8rem;
+
+        color: #000000;
+
+        text-align: center;
+
+        margin-bottom: 32px;
+      }
+
+      .left-quote {
+        font-size: 1.2rem;
+
+        color: #772398;
+
+        line-height: 1.4;
+
+        margin-bottom: 30px;
+
+        padding: 0 8px;
+      }
+
+      .purple-steps {
+        background-color: #772398;
+
+        color: #ffffff;
+
+        padding: 30px 20px;
+
+        border-radius: 24px;
+
+        margin-bottom: 30px;
+      }
+
+      .purple-steps h3 {
+        font-size: 1.6rem;
+
+        margin-bottom: 20px;
+      }
+
+      .steps-list {
+        list-style: none;
+      }
+
+      .steps-list li {
+        margin-bottom: 18px;
+
+        display: flex;
+
+        gap: 12px;
+
+        font-size: 1rem;
+      }
+
+      .step-number {
+        font-weight: bold;
+
+        min-width: 30px;
+      }
+
+      .mission-block {
+        background-color: #b774a8;
+
+        font-size: 1.3rem;
+
+        color: #ffffff;
+
+        text-align: center;
+
+        padding: 40px 20px;
+
+        border-radius: 24px;
+      }
+
+      /* ----- 3. КНИГА МЕСЯЦА ----- */
+
+      .bookmonth-section {
+        position: relative;
+
+        width: 100%;
+
+        margin-top: 60px;
+
+        padding: 20px;
+
+        scroll-margin-top: 60px;
+      }
+
+      .big-pink {
+        display: none; /* декоративный фон, на мобильных скрыт */
+      }
+
+      .title-book-month {
+        font-family: "Oi", cursive;
+
+        font-size: 2.2rem;
+
+        text-align: center;
+
+        margin-bottom: 12px;
+      }
+
+      .subtitle-book {
+        font-size: 1.4rem;
+
+        text-align: center;
+
+        margin-bottom: 24px;
+      }
+
+      .desc-block {
+        background-color: #772398;
+
+        color: #ffffff;
+
+        padding: 24px;
+
+        border-radius: 24px;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+        margin-bottom: 30px;
+      }
+
+      .book-cover-image {
+        width: 80%;
+
+        max-width: 320px;
+
+        margin: 0 auto 30px;
+
+        border-radius: 16px;
+
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+        display: block;
+      }
+
+      .contact-block {
+        background-color: #772398;
+
+        color: #ffffff;
+
+        font-size: 1.2rem;
+
+        text-align: center;
+
+        padding: 24px;
+
+        border-radius: 24px;
+
+        margin-top: 20px;
+      }
+
+      /* ----- 4. КАЛЕНДАРЬ ВСТРЕЧ ----- */
+
+      .calendar-section {
+        position: relative;
+
+        width: 100%;
+
+        margin-top: 60px;
+
+        padding: 20px;
+
+        scroll-margin-top: 60px;
+      }
+
+      .calendar-title {
+        font-size: 2.2rem;
+
+        color: #772398;
+
+        text-align: center;
+
+        margin-bottom: 30px;
+      }
+
+      .cover1,
+      .cover2,
+      .cover3 {
+        width: 70%;
+
+        max-width: 240px;
+
+        margin: 20px auto;
+
+        border-radius: 12px;
+
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      }
+
+      .purple-dec,
+      .purple-jan,
+      .purple-feb {
+        background-color: #772398;
+
+        color: #ffffff;
+
+        font-size: 1.2rem;
+
+        text-align: center;
+
+        padding: 24px 16px;
+
+        border-radius: 24px;
+
+        margin: 20px 0;
+      }
+
+      .purple-bio {
+        background-color: #772398;
+
+        color: #ffffff;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+        padding: 28px;
+
+        border-radius: 24px;
+
+        margin: 30px 0 20px;
+      }
+
+      .author-photo {
+        width: 70%;
+
+        max-width: 260px;
+
+        margin: 0 auto;
+
+        border-radius: 20px;
+
+        overflow: hidden;
+
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      }
+
+      .marker-line {
+        display: none; /* сложный SVG, на мобильных убираем для чистоты */
+      }
+
+      /* ----- 5. ЧАСТЫЕ ВОПРОСЫ ----- */
+
+      .faq-section {
+        position: relative;
+
+        width: 100%;
+
+        margin-top: 60px;
+
+        padding: 20px;
+
+        scroll-margin-top: 60px;
+      }
+
+      .faq-title,
+      .faq-subtitle {
+        font-size: 1.9rem;
+
+        text-align: center;
+
+        margin-bottom: 12px;
+
+        color: #000000;
+      }
+
+      .faq-subtitle {
+        font-size: 1.5rem;
+
+        margin-bottom: 32px;
+      }
+
+      .faq-block-1,
+      .faq-block-2 {
+        font-size: 1.1rem;
+
+        color: #772398;
+
+        line-height: 1.4;
+
+        background: #f9eef5;
+
+        padding: 24px;
+
+        border-radius: 28px;
+
+        margin-bottom: 24px;
+      }
+
+      /* ----- 6. КОНТАКТЫ (КНОПКИ) ----- */
+
+      .contact-footer {
+        position: relative;
+
+        width: 100%;
+
+        background-color: #ba0044;
+
+        opacity: 1;
+
+        margin-top: 40px;
+
+        padding: 50px 20px;
+      }
+
+      .contact-footer::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        background-color: #ba0044;
+
+        opacity: 0.3;
+
+        z-index: 0;
+      }
+
+      .contact-content {
+        position: relative;
+
+        z-index: 2;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 24px;
+      }
+
+      .contact-title {
+        font-size: 1.5rem;
+
+        color: #000000;
+
+        background: rgba(255, 255, 255, 0.8);
+
+        padding: 8px 20px;
+
+        border-radius: 40px;
+
+        font-weight: 600;
+      }
+
+      .buttons-container {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 20px;
+      }
+
+      .contact-btn {
+        font-family: "Old Standard TT", serif;
+
+        font-size: 1.2rem;
+
+        background-color: #772398;
+
+        color: white;
+
+        border: none;
+
+        padding: 14px 28px;
+
+        border-radius: 60px;
+
+        cursor: pointer;
+
+        min-width: 160px;
+
+        transition: 0.2s;
+      }
+
+      .contact-btn:hover {
+        background-color: #5e1a7a;
+      }
+
+      .spacer {
+        height: 30px;
+      }
+
+      /* МОДАЛЬНОЕ ОКНО (адаптивное) */
+
+      .modal {
+        display: none;
+
+        position: fixed;
+
+        z-index: 2000;
+
+        left: 0;
+
+        top: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        background-color: rgba(0, 0, 0, 0.7);
+
+        backdrop-filter: blur(3px);
+      }
+
+      .modal-content {
+        background-color: #772398;
+
+        margin: 10% auto;
+
+        width: 90%;
+
+        max-width: 500px;
+
+        border-radius: 28px;
+
+        position: relative;
+
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .white-form-block {
+        background-color: #ffffff;
+
+        border-radius: 28px;
+
+        padding: 24px 20px 40px;
+      }
+
+      .form-title {
+        text-align: center;
+
+        font-size: 1.6rem;
+
+        margin-bottom: 28px;
+
+        color: #000;
+      }
+
+      .form-fields {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 28px;
+
+        align-items: center;
+      }
+
+      .input-field {
+        width: 100%;
+
+        background-color: rgba(0, 0, 0, 0.08);
+
+        border-bottom: 3px solid #000;
+
+        display: flex;
+
+        align-items: center;
+
+        padding: 8px 12px;
+      }
+
+      .input-field input {
+        width: 100%;
+
+        background: transparent;
+
+        border: none;
+
+        outline: none;
+
+        font-family: "Old Standard TT", serif;
+
+        font-size: 1rem;
+
+        color: #772398;
+      }
+
+      .input-field input::placeholder {
+        color: #772398;
+
+        font-family: "Old Standard TT", serif;
+      }
+
+      .submit-button {
+        width: 100%;
+
+        background-color: rgba(0, 0, 0, 0.08);
+
+        border-bottom: 3px solid #000;
+
+        margin-top: 40px;
+
+        cursor: pointer;
+
+        text-align: center;
+      }
+
+      .submit-button button {
+        background: transparent;
+
+        border: none;
+
+        font-family: "Old Standard TT", serif;
+
+        font-size: 1.4rem;
+
+        color: #772398;
+
+        cursor: pointer;
+
+        padding: 14px;
+
+        width: 100%;
+      }
+
+      .close-modal {
+        position: absolute;
+
+        top: 12px;
+
+        right: 20px;
+
+        font-size: 34px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        color: #772398;
+
+        z-index: 15;
+      }
+
+      /* ========== ДОПОЛНИТЕЛЬНЫЕ ПЛАНШЕТНЫЕ И МОБИЛЬНЫЕ ПРАВКИ ========== */
+
+      @media (max-width: 768px) {
+        .nav-window {
+          font-size: 1rem;
+
+          gap: 12px 18px;
+        }
+
+        .nav-window a {
+          white-space: nowrap;
+        }
+
+        .purple-block-main {
+          margin-top: 40px;
+
+          padding: 24px 18px;
+        }
+
+        .title-row {
+          margin-bottom: 12px;
+        }
+
+        .text-window-1,
+        .text-window-2 {
+          font-size: 0.95rem;
+        }
+
+        .btn {
+          font-size: 1rem;
+
+          padding: 12px 16px;
+        }
+
+        .title-main {
+          font-size: 1.8rem;
+        }
+
+        .title-sub {
+          font-size: 1.4rem;
+
+          white-space: normal;
+        }
+
+        .left-quote {
+          font-size: 1rem;
+        }
+
+        .purple-steps {
+          padding: 24px 16px;
+        }
+
+        .purple-steps h3 {
+          font-size: 1.4rem;
+        }
+
+        .mission-block {
+          font-size: 1.1rem;
+
+          padding: 28px 16px;
+        }
+
+        .title-book-month {
+          font-size: 1.8rem;
+        }
+
+        .subtitle-book {
+          font-size: 1.2rem;
+        }
+
+        .desc-block {
+          font-size: 0.95rem;
+
+          padding: 20px;
+        }
+
+        .contact-block {
+          font-size: 1rem;
+        }
+
+        .calendar-title {
+          font-size: 1.9rem;
+        }
+
+        .purple-dec,
+        .purple-jan,
+        .purple-feb {
+          font-size: 1rem;
+
+          padding: 18px;
+        }
+
+        .purple-bio {
+          font-size: 0.95rem;
+
+          padding: 20px;
+        }
+
+        .faq-title {
+          font-size: 1.6rem;
+        }
+
+        .faq-subtitle {
+          font-size: 1.3rem;
+        }
+
+        .faq-block-1,
+        .faq-block-2 {
+          font-size: 1rem;
+        }
+
+        .contact-btn {
+          font-size: 1rem;
+
+          padding: 10px 20px;
+
+          min-width: 140px;
+        }
+
+        .modal-content {
+          width: 92%;
+
+          margin: 20% auto;
+        }
+
+        .form-title {
+          font-size: 1.4rem;
+        }
+
+        .submit-button button {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-window {
+          font-size: 0.9rem;
+
+          gap: 10px 14px;
+        }
+
+        .word-knizhny,
+        .word-klub {
+          font-size: 2rem;
+        }
+
+        .btn {
+          max-width: 240px;
+        }
+
+        .title-main {
+          font-size: 1.6rem;
+        }
+
+        .title-sub {
+          font-size: 1.2rem;
+        }
+
+        .purple-steps h3 {
+          font-size: 1.3rem;
+        }
+
+        .steps-list li {
+          font-size: 0.9rem;
+
+          gap: 8px;
+        }
+
+        .mission-block {
+          font-size: 1rem;
+        }
+
+        .title-book-month {
+          font-size: 1.6rem;
+        }
+
+        .subtitle-book {
+          font-size: 1rem;
+        }
+
+        .calendar-title {
+          font-size: 1.7rem;
+        }
+
+        .cover1,
+        .cover2,
+        .cover3 {
+          width: 85%;
+        }
+
+        .contact-title {
+          font-size: 1.2rem;
+        }
+
+        .buttons-container {
+          gap: 14px;
+        }
+
+        .contact-btn {
+          font-size: 0.9rem;
+
+          padding: 8px 16px;
+
+          min-width: 120px;
+        }
+
+        .modal-content {
+          margin: 30% auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav class="nav-window">
+        <a href="#contacts">Контакты</a>
+
+        <a href="#faq">Вопросы</a>
+
+        <a href="#calendar">Календарь встреч</a>
+
+        <a href="#bookmonth">Книга месяца</a>
+      </nav>
+    </header>
+
+    <div class="site-container">
+      <!-- 1. ГЛАВНАЯ -->
+
+      <div class="main-section">
+        <div class="title-row">
+          <span class="word-knizhny">Книжный</span>
+
+          <span class="word-klub">клуб</span>
+        </div>
+
+        <div class="purple-block-main">
+          <div class="text-window-1">
+            «Открывайте новые миры, делитесь впечатлениями и находите
+            единомышленников. Мы не просто читаем книги — мы их проживаем.»
+          </div>
+
+          <div class="text-window-2">
+            <div class="feature-item">
+              Ежемесячные встречи: Живое обсуждение в уютной атмосфере.
+            </div>
+
+            <div class="feature-item">
+              Тематические подборки: От классики до современных бестселлеров.
+            </div>
+
+            <div class="feature-item">
+              Сообщество: Общайтесь с такими же влюбленными в литературу.
+            </div>
+
+            <div class="feature-item">
+              Экспертные мнения: Гостевые выступления критиков и авторов.
+            </div>
+          </div>
+
+          <div class="buttons-wrapper-main">
+            <button class="btn btn-join" id="joinBtn">Вступить в клуб</button>
+
+            <a href="#calendar" class="btn btn-meeting">Ближайшая встреча</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. КАК ЭТО РАБОТАЕТ -->
+
+      <div class="how-section">
+        <div class="title-main">КАК ЭТО РАБОТАЕТ</div>
+
+        <div class="title-sub">Книжный клуб — это больше, чем чтение.</div>
+
+        <div class="left-quote">
+          <p>
+            Наш клуб создан для тех, кто замечает магию в шелесте страниц и для
+            кого "Что вы сейчас читаете?" — не просто вежливость, а искренний
+            интерес.
+          </p>
+
+          <p>
+            Мы верим, что лучшая книга — это та, которую обсудили с друзьями.
+          </p>
+        </div>
+
+        <div class="purple-steps">
+          <h3>Как мы работаем:</h3>
+
+          <ul class="steps-list">
+            <li>
+              <span class="step-number">1.</span> Выбираем книгу месяца. Каждый
+              месяц мы голосуем за новую книгу из curated-списка. У нас есть
+              место и для нон-фикшна, и для фантастики, и для мемуаров.
+            </li>
+
+            <li>
+              <span class="step-number">2.</span> Читаем в своем темпе. У вас
+              есть 3–4 недели, чтобы погрузиться в произведение.
+            </li>
+
+            <li>
+              <span class="step-number">3.</span> Встречаемся и обсуждаем. Мы
+              собираемся онлайн или в уютном антикафе/коворкинге, чтобы
+              поделиться мнениями, открытиями и спорами. Модератор направляет
+              беседу, но ваши мысли — главные.
+            </li>
+
+            <li>
+              <span class="step-number">4.</span> Общаемся в чате. В течение
+              месяца мы делимся цитатами, интересными статьями и поддерживаем
+              друг друга в нашем закрытом Telegram-чате.
+            </li>
+          </ul>
+        </div>
+
+        <div class="mission-block">
+          Наша миссия: Создать вдохновляющее пространство для диалога, где
+          каждая прочитанная книга делает нас немного мудрее и ближе друг к
+          другу.
+        </div>
+      </div>
+
+      <!-- 3. КНИГА МЕСЯЦА -->
+
+      <div id="bookmonth" class="bookmonth-section">
+        <div class="title-book-month">Книга месяца</div>
+
+        <div class="subtitle-book">Ноябрь 2025: Красный дракон</div>
+
+        <div class="desc-block">
+          «Красный дракон» Томаса Харриса — психологический триллер и первая
+          книга в цикле о Ганнибале Лектере. ФБР заходит в тупик, расследуя дела
+          серийного убийцы по прозвищу Красный Дракон, и обращается за помощью к
+          доктору Лектеру — блестящему психиатру и одновременно
+          маньяку‑каннибалу, отбывающему наказание в заключении. Лектер
+          соглашается помочь следствию, но не из альтруизма: он затевает
+          изощрённую психологическую игру. Напряжённое противостояние
+          интеллектов держит в напряжении до самого финала и закладывает основы
+          знаменитого образа Ганнибала Лектера.
+        </div>
+
+        <img
+          src="./images/4.png"
+          alt="Красный дракон"
+          class="book-cover-image"
+        />
+
+        <div class="contact-block">
+          Хотите предложить книгу? Пишите нам на почту knizniclub@mail.ru
+        </div>
+      </div>
+
+      <!-- 4. КАЛЕНДАРЬ ВСТРЕЧ -->
+
+      <div id="calendar" class="calendar-section">
+        <div class="calendar-title">Календарь встреч</div>
+
+        <img
+          src="./images/5.png"
+          alt="Молчание ягнят"
+          class="cover1"
+        />
+
+        <div class="purple-dec">Декабрь 2025: Молчание ягнят</div>
+
+        <img
+          src="./images/2.png"
+          alt="Ганнибал"
+          class="cover2"
+        />
+
+        <div class="purple-jan">Январь 2026: Ганнибал</div>
+
+        <div class="purple-feb">Февраль 2026: Восхождение Ганнибала</div>
+
+        <img
+          src="./images/1.png"
+          alt="Восхождение Ганнибала"
+          class="cover3"
+        />
+
+        <div class="purple-bio">
+          Томас Харрис (англ. Thomas Harris) — американский писатель, журналист
+          и сценарист, известный романами в жанрах триллер и детектив. Особое
+          место в творчестве — история доктора Ганнибала Лектера, серийного
+          убийцы, который занимается каннибализмом. Харрис создал персонажа,
+          наделённого острым умом и навыками психоанализа, что позволило ему
+          неоднократно избежать правосудия.
+        </div>
+
+        <div class="author-photo">
+          <img
+            src="./images/3.png"
+            alt="Фото Томаса Харриса"
+          />
+        </div>
+      </div>
+
+      <!-- 5. ЧАСТЫЕ ВОПРОСЫ -->
+
+      <div id="faq" class="faq-section">
+        <div class="faq-title">Частые вопросы</div>
+
+        <div class="faq-subtitle">Ответы на ваши вопросы</div>
+
+        <div class="faq-block-1">
+          Вопрос: Как часто проходят встречи?<br />
+
+          Ответ: Основные встречи — раз в месяц. Также мы периодически проводим
+          дополнительные события: кинопоказы по мотивам книг, литературные квизы
+          и встречи с авторами.
+        </div>
+
+        <div class="faq-block-2">
+          Вопрос: Нужно ли платить за участие?<br />
+
+          Ответ: Участие в основных онлайн-встречах бесплатное.
+        </div>
+      </div>
+
+      <!-- 6. КОНТАКТЫ -->
+
+      <div id="contacts" class="contact-footer">
+        <div class="contact-content">
+          <div class="contact-title">Как с нами связаться:</div>
+
+          <div class="buttons-container">
+            <button class="contact-btn btn-tg">ТГ-канал</button>
+
+            <button class="contact-btn btn-wa">WhatsApp</button>
+
+            <button class="contact-btn btn-email">Почта</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+
+    <div id="applyModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <div class="white-form-block">
+          <div class="form-title">Оставьте заявку на вступление</div>
+
+          <div class="form-fields">
+            <div class="input-field">
+              <input type="text" placeholder="Ваше имя" />
+            </div>
+
+            <div class="input-field">
+              <input type="tel" placeholder="Номер телефона" />
+            </div>
+
+            <div class="input-field">
+              <input type="email" placeholder="Адрес электронной почты" />
+            </div>
+          </div>
+
+          <div class="submit-button">
+            <button type="button">Оставить заявку</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("applyModal");
+
+      const joinBtn = document.getElementById("joinBtn");
+
+      const closeBtn = document.querySelector(".close-modal");
+
+      joinBtn.onclick = function (e) {
+        e.preventDefault();
+
+        modal.style.display = "block";
+      };
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      const submitModal = document.querySelector(
+        "#applyModal .submit-button button",
+      );
+
+      if (submitModal) {
+        submitModal.addEventListener("click", function () {
+          alert("Заявка отправлена (демо)");
+
+          modal.style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html>
